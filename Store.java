@@ -13,22 +13,37 @@ public class Store {
     Product[] inStock = {pop1,pop2,rap1,rap2};
 
     while(running){
-      System.out.println("Would you like to 'browse' 'price' match or 'exit'?");
+      System.out.println("Would you like to browse 'all', search by 'year',search by 'price' or 'exit'?");
       String navResponse = console.readLine();
 
-      if (navResponse.equals("browse")){
+      if (navResponse.equals("all")){
         for (Product item : inStock){
           System.out.println(item.artistName);
         }
+      } else if (navResponse.equals("year")){
+        System.out.println("Pick a year and we'll show you all albums from that year and newer");
+        String strNum2 = console.readLine();
+        int userYear = Integer.parseInt(strNum2);
+        System.out.println("You said " + userYear);
+
+        for (Product item : inStock){
+          if (item.byYear(userYear)) {
+            System.out.println(item.albumName + " was released in " + item.releaseYear);
+            System.out.println();
+          }
+        }
+
       } else if (navResponse.equals("price")){
         System.out.println("How much can you afford to spend?");
         String strNum = console.readLine();
         int userPurse = Integer.parseInt(strNum);
+        System.out.println("You said $" + userPurse + ". The following items are available in that price range:");
+        System.out.println();
 
         for (Product item :inStock){
           if (item.canAfford(userPurse)){
-            System.out.println(item.artistName);
-            System.out.println(item.albumPrice);
+            System.out.println(item.artistName + "'s album " + item.albumName + " for $" + item.albumPrice);
+            System.out.println();
           }
         }
 

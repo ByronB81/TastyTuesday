@@ -14,4 +14,8 @@ class Product {
   public boolean canAfford(int customerPurse){
     return (albumPrice <= customerPurse);
   }
+
+  public boolean byYear(int customerYear){
+    return (releaseYear > customerYear);
+  }
 }
