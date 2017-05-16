@@ -23,9 +23,27 @@ public class Ups {
 
     for (Parcel cube : cubert){
       int userVolume = cube.parcelVolume(cube.xAxis, cube.yAxis, cube.zAxis);
+      System.out.println();
       System.out.println("Okay, fun fact: The volume of that parcel is " + userVolume + "!");
-      System.out.println(cube.xAxis);
     }
+
+    System.out.println("Now, what is the weight of your parcel in pounds?");
+    String strWeight = console.readLine();
+    int userWeight = Integer.parseInt(strWeight);
+    System.out.println(userWeight);
+
+    userParcel.weight = userWeight;
+    userParcel.sort =  userParcel.sorted(userWeight);
+
+    if (userParcel.sort == 0) {
+      System.out.println("This package is considered STANDARD size. No additional cost.");
+    } else if (userParcel.sort == 1){
+      System.out.println("This item is considered OVERSIZE. $2 additional charge");
+      userParcel.price = userParcel.price + 2;
+    }
+
+
+    System.out.println("$" + userParcel.price);
 
 
 
