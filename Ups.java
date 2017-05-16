@@ -42,6 +42,19 @@ public class Ups {
       userParcel.price = userParcel.price + 2;
     }
 
+    System.out.println("How far are you shipping the parcel in miles?");
+    String strDistance = console.readLine();
+    int userDistance = Integer.parseInt(strDistance);
+    userParcel.distance = userDistance;
+
+    if (userParcel.distance < 1000){
+      System.out.println("Standard distance rates apply of $5");
+      userParcel.price = userParcel.price + 5;
+    } else {
+      System.out.println("Long distance charges apply to deliveries over 1000 miles. Additional charge of $10");
+      userParcel.price = userParcel.price + 10;
+    }
+
 
     System.out.println("$" + userParcel.price);
 
