@@ -13,7 +13,7 @@ public class Store {
     Product[] inStock = {pop1,pop2,rap1,rap2};
 
     while(running){
-      System.out.println("Would you like to browse 'all', search by 'year',search by 'price' or 'exit'?");
+      System.out.println("Would you like to search by 'year' 'price' 'all' or 'exit'?");
       String navResponse = console.readLine();
 
       if (navResponse.equals("all")){
