@@ -24,7 +24,13 @@ public class Ups {
     for (Parcel cube : cubert){
       int userVolume = cube.parcelVolume(cube.xAxis, cube.yAxis, cube.zAxis);
       System.out.println();
-      System.out.println("Okay, fun fact: The volume of that parcel is " + userVolume + "!");
+      System.out.println("Parcel volume is " + userVolume + ".");
+      if (userVolume < 30) {
+        System.out.println("This size is considered STANDARD. No additional cost.");
+      } else {
+        System.out.println("This ize is considered LARGE. $2 additional charge");
+        userParcel.price = userParcel.price + 2;
+      }
     }
 
     System.out.println("Now, what is the weight of your parcel in pounds?");
@@ -38,7 +44,7 @@ public class Ups {
     if (userParcel.sort == 0) {
       System.out.println("This package is considered STANDARD size. No additional cost.");
     } else if (userParcel.sort == 1){
-      System.out.println("This item is considered OVERSIZE. $2 additional charge");
+      System.out.println("This item is considered HEAVY. $2 additional charge");
       userParcel.price = userParcel.price + 2;
     }
 
