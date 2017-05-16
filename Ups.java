@@ -61,6 +61,18 @@ public class Ups {
       userParcel.price = userParcel.price + 10;
     }
 
+    System.out.println("Lastly, how fast do you want it? Overnight, 2-day, standard");
+    String strDelivery = console.readLine();
+    if (strDelivery.equals("overnight")){
+      System.out.println("You chose overnight. $8 additional cost.");
+      userParcel.price = userParcel.price + 8;
+    } else if (strDelivery.equals("2-day")) {
+      System.out.println("You chose 2-Day. $4 additional cost.");
+      userParcel.price = userParcel.price + 4;
+    } else {
+      System.out.println("You chose standard shipping. No additional cost.");
+    }
+
 
     System.out.println("$" + userParcel.price);
 
