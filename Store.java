@@ -1,4 +1,6 @@
 import java.io.Console;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Store {
   public static void main(String[] args){
@@ -10,7 +12,12 @@ public class Store {
     Product rap1 = new Product("Young Clean Heir", "All About That GPA", 2011, 14);
     Product rap2 = new Product("Phone, Hugs, and eHarmony", "Get Atcha Girl", 2015, 20);
 
-    Product[] inStock = {pop1,pop2,rap1,rap2};
+    List<Product> inStock = new ArrayList<Product>();
+    inStock.add(pop1);
+    inStock.add(pop2);
+    inStock.add(rap1);
+    inStock.add(rap2);
+
 
     while(running){
       System.out.println("Would you like to search by 'year' 'price' 'all' 'add' or 'exit'?");
@@ -57,6 +64,7 @@ public class Store {
         System.out.println("How much is the album sold for?");
         int price = Integer.parseInt(console.readLine());
         Product userAdd = new Product(name, album, release, price);
+        inStock.add(userAdd);
 
       } else if (navResponse.equals("exit")) {
         running = false;
