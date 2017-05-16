@@ -13,7 +13,7 @@ public class Store {
     Product[] inStock = {pop1,pop2,rap1,rap2};
 
     while(running){
-      System.out.println("Would you like to search by 'year' 'price' 'all' or 'exit'?");
+      System.out.println("Would you like to search by 'year' 'price' 'all' 'add' or 'exit'?");
       String navResponse = console.readLine();
 
       if (navResponse.equals("all")){
@@ -47,8 +47,21 @@ public class Store {
           }
         }
 
+      } else if (navResponse.equals("add")){
+        System.out.println("Okay what is the name of the artist?");
+        String name = console.readLine();
+        System.out.println("What is the album name?");
+        String album = console.readLine();
+        System.out.println("What year was the album released?");
+        int release = Integer.parseInt(console.readLine());
+        System.out.println("How much is the album sold for?");
+        int price = Integer.parseInt(console.readLine());
+        Product userAdd = new Product(name, album, release, price);
+
       } else if (navResponse.equals("exit")) {
         running = false;
+      } else {
+        System.out.println("I'm sorry but I did not recognize that response. Please try again.");
       }
     }
   }
